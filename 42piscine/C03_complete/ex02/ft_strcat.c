@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiduart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 15:42:09 by luiduart          #+#    #+#             */
-/*   Updated: 2022/11/05 15:42:11 by luiduart         ###   ########.fr       */
+/*   Created: 2022/07/26 11:00:10 by luiduart          #+#    #+#             */
+/*   Updated: 2022/07/26 11:00:12 by luiduart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strcat(char *dest, char *src)
 {
-	while (*s != '\0')
+	char	*aux;
+
+	aux = dest;
+	while (*aux != '\0')
+		aux++;
+	while (*src != '\0')
 	{
-		if(*s == c)
-		{
-			return(s);
-		}
-		s++;
+		*aux = *src;
+		aux++;
+		src++;
 	}
-	return(NULL);
-} 
+	*aux = '\0';
+	return (dest);
+}
+/*
+int	main(void)
+{
+	char	frase1[] = "Hello";
+	char	frase2[] = "Ola";
+
+	strcat(frase1, frase2);
+	printf("%s\n", frase1);
+
+	ft_strcat(frase1, frase2);
+	printf("%s\n", frase1);
+	return (0);
+}*/

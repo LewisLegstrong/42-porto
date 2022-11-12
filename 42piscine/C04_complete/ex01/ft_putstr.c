@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiduart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 15:42:09 by luiduart          #+#    #+#             */
-/*   Updated: 2022/11/05 15:42:11 by luiduart         ###   ########.fr       */
+/*   Created: 2022/07/19 16:12:59 by luiduart          #+#    #+#             */
+/*   Updated: 2022/07/19 16:13:00 by luiduart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-char *ft_strchr(const char *s, int c)
+void	ft_putstr(char *str)
 {
-	while (*s != '\0')
+	while (*str != '\0')
 	{
-		if(*s == c)
-		{
-			return(s);
-		}
-		s++;
+		write(1, &*str, 1);
+		str++;
 	}
-	return(NULL);
-} 
+}
+
+/*int	main(void)
+{
+	char	frase[9] = "Hello me";
+
+	ft_putstr(frase);
+	return (0);
+}
+*/

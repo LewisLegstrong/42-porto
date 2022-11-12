@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-static char	*is_whitespace(char *str)
+char	*is_whitespace(char *str)
 {
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
@@ -22,22 +22,31 @@ static char	*is_whitespace(char *str)
 int	ft_atoi(char *str)
 {
 	int	num;
+	int	minus;
 
 	num = 0;
 	str = is_whitespace(str);
-	minus = 1;
-	
-	if (*str == '-' || *str == '+')
-	{	
-		if(*str == '-')
-			minus = -1;
+	minus = 0;
+	while (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			minus++;
 		str++;
 	}
-
 	while ((*str >= '0' && *str <= '9') && (*str != '\0'))
 	{
 		num = num * 10 + (*str - '0');
 		str++;
 	}
-	return (num * minus);
+	if ((minus % 2) != 0)
+		num = num * (-1);
+	return (num);
 }
+
+/*int	main(int argc, char *argv[])
+{
+	if (argc == 2)
+		printf ("%d \n", ft_atoi(argv[1]));
+	return (0);
+}
+*/

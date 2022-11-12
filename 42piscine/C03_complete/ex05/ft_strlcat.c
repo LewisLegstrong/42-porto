@@ -10,28 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
+#include <bsd/string.h>
+#include <stdio.h>
 
-size_t	ft_strlen(char *src);
-
-size_t	ft_strlcat(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlen(char *src)
 {
-	char				*aux;
-	unsigned int		j;
+	char			*aux;
+	unsigned int	i;
 
+	i = 0;
+	aux = src;
+	while (*aux != '\0')
+	{
+		aux++;
+		i++;
+	}
+	return (i);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	j;
+	unsigned int	t_t;
+
+	t_t = ft_strlen(src) + ft_strlen(dest);
 	j = 0;
 	if (size <= ft_strlen(dest))
 		return (size + ft_strlen(src));
-	aux = dest + (ft_strlen(dest));
-	while (*src != '\0' && j < (size - (ft_strlen(dest)) - 1))
+	while (*dest != '\0')
+	{
+		dest++;
+		j++;
+	}
+	while (*src != '\0' && j < (size - 1))
 	{	
-		*aux = *src;
-		aux++;
+		*dest = *src;
+		dest++;
 		src++;
 		j++;
 	}
-	*aux = '\0';
-	return (ft_strlen(src) + ft_strlen(dest));
+	*dest = '\0';
+	return (t_t);
 }
 
 /*int	main(void)
@@ -51,4 +71,5 @@ size_t	ft_strlcat(char *dest, char *src, unsigned int size)
 	rest = strlcat(dest2, src2, 15);
 	printf("%s %d \n", dest2, rest);
 	return (0);
-}*/
+}
+*/

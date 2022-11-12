@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiduart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 15:42:09 by luiduart          #+#    #+#             */
-/*   Updated: 2022/11/05 15:42:11 by luiduart         ###   ########.fr       */
+/*   Created: 2022/08/02 14:38:04 by luiduart          #+#    #+#             */
+/*   Updated: 2022/08/02 14:38:06 by luiduart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-char *ft_strchr(const char *s, int c)
+void	ft_putchar(char c)
 {
-	while (*s != '\0')
+	write(1, &c, 1);
+}
+
+void	ft_pustring(char *str)
+{
+	while (*str)
 	{
-		if(*s == c)
-		{
-			return(s);
-		}
-		s++;
+		ft_putchar(*str);
+		str++;
 	}
-	return(NULL);
-} 
+	ft_putchar('\n');
+}
+
+int	main(int argc, char *argv[])
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		ft_pustring(argv[i]);
+		i++;
+	}
+	return (0);
+}

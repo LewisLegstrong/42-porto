@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiduart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 15:42:09 by luiduart          #+#    #+#             */
-/*   Updated: 2022/11/05 15:42:11 by luiduart         ###   ########.fr       */
+/*   Created: 2022/07/25 17:14:02 by luiduart          #+#    #+#             */
+/*   Updated: 2022/07/25 17:14:04 by luiduart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 
-char *ft_strchr(const char *s, int c)
+int	ft_strcmp(char *s1, char *s2)
 {
-	while (*s != '\0')
+	while (*s1 != '\0' || *s2 != '\0')
 	{
-		if(*s == c)
-		{
-			return(s);
-		}
-		s++;
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
 	}
-	return(NULL);
-} 
+	return (0);
+}
+
+/*int	main(void)
+{
+	char	string1[] = "Hello";
+	char	string2[] = "Hello";
+
+	printf("%d\n\n", strcmp(string1, string2));
+	printf("%d\n\n", ft_strcmp(string1, string2));
+	return (0);
+}
+*/

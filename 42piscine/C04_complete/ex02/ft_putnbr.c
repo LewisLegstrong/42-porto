@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiduart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 09:50:01 by luiduart          #+#    #+#             */
-/*   Updated: 2022/07/28 09:50:04 by luiduart         ###   ########.fr       */
+/*   Created: 2022/07/20 12:08:33 by luiduart          #+#    #+#             */
+/*   Updated: 2022/07/20 12:09:00 by luiduart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-static char	*is_whitespace(char *str)
+void	ft_putchar(char c)
 {
-	while (*str == 32 || (*str >= 9 && *str <= 13))
-		str++;
-	return (str);
+	write(1, &c, 1);
 }
 
-int	ft_atoi(char *str)
+void	ft_putnbr(int nb)
 {
-	int	num;
-
-	num = 0;
-	str = is_whitespace(str);
-	minus = 1;
-	
-	if (*str == '-' || *str == '+')
-	{	
-		if(*str == '-')
-			minus = -1;
-		str++;
-	}
-
-	while ((*str >= '0' && *str <= '9') && (*str != '\0'))
+	if (nb == (-2147483648))
 	{
-		num = num * 10 + (*str - '0');
-		str++;
+		write(1, "-2", 2);
+		ft_putnbr(147483648);
 	}
-	return (num * minus);
+	else if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = nb * (-1);
+		ft_putnbr(nb);
+	}
+	else if (nb >= 0 && nb <= 9)
+		ft_putchar(nb + 48);
+	else if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 }
+
+/*int	main(void)
+{
+	ft_putnbr(-2147483648);
+	return (0);
+}
+*/

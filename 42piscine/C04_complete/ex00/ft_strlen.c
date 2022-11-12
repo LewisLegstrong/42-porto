@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiduart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 15:42:09 by luiduart          #+#    #+#             */
-/*   Updated: 2022/11/05 15:42:11 by luiduart         ###   ########.fr       */
+/*   Created: 2022/07/19 17:29:37 by luiduart          #+#    #+#             */
+/*   Updated: 2022/07/19 17:29:38 by luiduart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
+#include <stdio.h>
 
-#include "libft.h"
-
-char *ft_strchr(const char *s, int c)
+int	ft_strlen(char *str)
 {
-	while (*s != '\0')
+	int	cont;
+
+	cont = 0;
+	while (*str != '\0')
 	{
-		if(*s == c)
-		{
-			return(s);
-		}
-		s++;
+		str++;
+		cont++;
 	}
-	return(NULL);
-} 
+	return (cont);
+}
+
+/*int	main(void)
+{
+	char	string[9] = "Hello 42";
+
+	printf("%d \n", ft_strlen(string));
+	return 0;
+}
+*/
