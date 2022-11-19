@@ -16,15 +16,16 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*aux;
 
-	aux	= s;
-	s = s + ft_strlen(s);
-	while(*s != aux*)
+	aux	= (char *)s;
+	aux = aux + ft_strlen((char *)s);
+	while(s != aux)
 	{
-		if (s == c)
+		if (*aux == c)
 		{
-			return(s);
+			return(aux);
+			break;
 		}
-		s--;
+		aux--;
 	}
 	return(NULL);
 } 

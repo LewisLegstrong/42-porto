@@ -14,13 +14,16 @@
 
 void	*memchr(const void *s, int c, size_t n)
 {
-	while ((*s != '\0') | (s <= s + n))
+	char *aux;
+
+	aux = (char *)s;
+	while ((*aux != '\0') | (aux <= aux + n))
 	{
-		if(*s == c)
+		if(*aux == c)
 		{
-			return(s);
+			return((char *)aux);
 		}
-		s++;
+		aux++;
 	}
 	return(NULL);
 }

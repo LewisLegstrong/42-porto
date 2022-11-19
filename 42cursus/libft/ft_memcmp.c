@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft"
+#include "libft.h"
 
 int memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	counter;
+	size_t	counter;
 	unsigned char	*aux1;
 	unsigned char	*aux2;
 
-	*aux1 = (unsigned char *)s1;
-	*aux2 = (unsigned char *)s2;
+	aux1 = (unsigned char *)s1;
+	aux2 = (unsigned char *)s2;
 
 	counter = 0;
 	while(counter <= n || (*aux1 != '\0' || *aux2 != '\0'))
@@ -30,5 +30,5 @@ int memcmp(const void *s1, const void *s2, size_t n)
 		aux2++;	
 		counter++;
 	}
-	return (0)
+	return (0);
 }

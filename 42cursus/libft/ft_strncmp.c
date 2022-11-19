@@ -21,7 +21,7 @@ unsigned int	ft_strnscmp(char *s1, char *s2, unsigned int n)
 	i = 0;
 	aux1 = s1;
 	aux2 = s2;
-	while (i < n && (*aux1 == '\0' || aux2 == '\0'))
+	while (i < n && (*aux1 == '\0' || *aux2 == '\0'))
 	{
 		if (*aux1 != *aux2)
 			return (*aux2 - *aux1);

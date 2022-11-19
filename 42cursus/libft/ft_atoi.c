@@ -22,7 +22,9 @@ static char	*is_whitespace(char *str)
 int	ft_atoi(char *str)
 {
 	int	num;
+	int minus;
 
+	minus = 0;
 	num = 0;
 	str = is_whitespace(str);
 	minus = 1;

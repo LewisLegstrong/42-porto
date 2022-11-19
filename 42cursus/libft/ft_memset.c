@@ -14,14 +14,14 @@
 
 void *ft_memset(void *s, int c, size_t n)
 {
-	void *aux;
+	unsigned char *aux;
 	aux = s;
-	while(aux < s+n){
+	while(aux < (unsigned char *)s+n){
 		*aux = c;
 		aux++;
 	}
 
-	return(*s);
+	return(s);
 }
 
 //to be verified
