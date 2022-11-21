@@ -18,10 +18,10 @@ size_t	ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int		j;
 
 	j = 0;
-	if (size <= ft_strlen(dest))
+	if (size < ft_strlen(dest))
 		return (size + ft_strlen(src));
 	aux = dest + (ft_strlen(dest));
-	while (*src != '\0' && j < (size + (ft_strlen(dest))))
+	while (*src != '\0' && j <= (size + (ft_strlen(dest))))
 	{	
 		*aux = *src;
 		aux++;
