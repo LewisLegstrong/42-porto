@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dest, char *src, unsigned int size)
 	if (size <= ft_strlen(dest))
 		return (size + ft_strlen(src));
 	aux = dest + (ft_strlen(dest));
-	while (*src != '\0' && j < (size - (ft_strlen(dest)) - 1))
+	while (*src != '\0' && j < (size + (ft_strlen(dest))))
 	{	
 		*aux = *src;
 		aux++;

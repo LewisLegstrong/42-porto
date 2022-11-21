@@ -22,20 +22,18 @@ static char	*is_whitespace(char *str)
 int	ft_atoi(char *str)
 {
 	int	num;
-	int minus;
+	int	minus;
 
 	minus = 0;
 	num = 0;
 	str = is_whitespace(str);
 	minus = 1;
-	
 	if (*str == '-' || *str == '+')
 	{	
-		if(*str == '-')
+		if (*str == '-')
 			minus = -1;
 		str++;
 	}
-
 	while ((*str >= '0' && *str <= '9') && (*str != '\0'))
 	{
 		num = num * 10 + (*str - '0');
