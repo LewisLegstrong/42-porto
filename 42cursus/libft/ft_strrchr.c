@@ -26,7 +26,7 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		aux--;
 	}
-	if(*aux == c)
-		return(aux);
+	if (*aux == c)
+		return (aux);
 	return (NULL);
 }

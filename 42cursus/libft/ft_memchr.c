@@ -17,7 +17,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*aux;
 	unsigned char	coiso;
 
-	coiso = (unsigned char)c; 
+	coiso = (unsigned char)c;
 	aux = (unsigned char *)s;
 	while (n-- != 0)
 	{

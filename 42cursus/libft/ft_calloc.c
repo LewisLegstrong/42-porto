@@ -10,4 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char	*coiso;
+	size_t	i;
+
+	i = 0;
+	if (!nmemb || !size)
+		return (NULL);
+	coiso = (unsigned char *)malloc(nmemb*size);
+	if (coiso == NULL)
+		return (NULL);
+	while (i <= nmemb*size)
+	{
+		coiso[i] = '\0';
+		i++;
+	}
+	return (coiso);
+}

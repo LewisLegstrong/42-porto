@@ -12,21 +12,20 @@
 
 #include "libft.h"
 
-static int find_stuart_little(char *big, char *little, size_t len)
+static int	find_stuart_little(char *big, char *little, size_t len)
 {
 	while (*big && *little && len > 0)
 	{
 		if (*little != *big)
-			return(0);
+			return (0);
 		little++;
 		big++;
 		len--;	
 	}
-	if (*little =='\0')
-		return(1);
+	if (*little == '\0')
+		return (1);
 	return (0);
 }
-
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -41,7 +40,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		if (*little == *auxbig)
 		{	
-			if(find_stuart_little(auxbig, (char *)little, (len - i)))
+			if (find_stuart_little(auxbig, (char *)little, (len - i)))
 				return (auxbig);
 		}
 		//i++;
@@ -50,7 +49,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-int main()
+/*int main()
 {
 	char *s1 = "see FF your FF return FF now FF";
 	//char *s2 = "FF";
@@ -58,4 +57,4 @@ int main()
 	char *i2 = ft_strnstr(s1, s1, max);
 	printf("%s\n", i2);
 	return (0);
-}
+}*/
