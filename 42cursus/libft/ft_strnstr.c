@@ -12,28 +12,50 @@
 
 #include "libft.h"
 
+static int find_stuart_little(char *big, char *little, size_t len)
+{
+	while (*big && *little && len > 0)
+	{
+		if (*little != *big)
+			return(0);
+		little++;
+		big++;
+		len--;	
+	}
+	if (*little =='\0')
+		return(1);
+	return (0);
+}
+
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*auxlit;
 	char	*auxbig;
 	size_t	i;
 
-	auxlit = (char *)little;
+	i = -1;
 	auxbig = (char *)big;
 	if (*little == '\0')
 		return ((char *)big);
-	while (*auxbig++ != '\0')
+	while (++i < len)
 	{
-		if (*auxbig == *auxlit)
-			big = auxbig;
-		i = 0;
-		while (i++ <= len)
-		{
-			if (auxlit++ != auxbig++)
-				break;
+		if (*little == *auxbig)
+		{	
+			if(find_stuart_little(auxbig, (char *)little, (len - i)))
+				return (auxbig);
 		}
-		if (i == len)
-			return ((char *)big);
+		//i++;
+		auxbig++;
 	}
 	return (NULL);
+}
+
+int main()
+{
+	char *s1 = "see FF your FF return FF now FF";
+	//char *s2 = "FF";
+	size_t max = strlen(s1);
+	char *i2 = ft_strnstr(s1, s1, max);
+	printf("%s\n", i2);
+	return (0);
 }

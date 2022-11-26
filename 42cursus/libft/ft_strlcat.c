@@ -14,22 +14,22 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	char				*aux;
-	unsigned int		j;
+	size_t	i;
+	size_t	j;
 
-	j = 0;
+	if (size == 0)
+		return(0);
 	if (size <= ft_strlen(dest))
 		return (size + ft_strlen((char *)src));
-	aux = dest + (ft_strlen(dest));
-	while (*src != '\0' && j <= (size + (ft_strlen(dest))))
+	i = (ft_strlen(dest));
+	j = 0;
+	while (src[j] != '\0' && (j < (size - i)-1))
 	{	
-		*aux = *src;
-		aux++;
-		src++;
+		dest[i + j] = src[j];
 		j++;
 	}
-	*aux = '\0';
-	return (ft_strlen((char *)src) + ft_strlen(dest));
+	dest[i + j] = '\0';
+	return (i + ft_strlen((char *)src));
 }
 
 /*int	main(void)
