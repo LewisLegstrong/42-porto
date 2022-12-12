@@ -17,16 +17,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	unsigned char	*coiso;
 	size_t	i;
 
-	i = 0;
-	if (!nmemb || !size)
+	i = nmemb*size;
+	coiso = malloc(i);
+	if (!coiso)
 		return (NULL);
-	coiso = (unsigned char *)malloc(nmemb*size);
-	if (coiso == NULL)
-		return (NULL);
-	while (i <= nmemb*size)
-	{
-		coiso[i] = '\0';
-		i++;
-	}
+	ft_memset(coiso, 0, i);
 	return (coiso);
 }
