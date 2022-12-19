@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *string, int chr, size_t num)
 {
 	unsigned char	*aux;
 	unsigned char	coiso;
 
-	coiso = (unsigned char)c;
-	aux = (unsigned char *)s;
-	while (n-- != 0)
+	coiso = (unsigned char)chr;
+	aux = (unsigned char *)string;
+	while (num-- != 0)
 	{
 		if (*aux == coiso)
 		{
