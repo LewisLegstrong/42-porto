@@ -10,4 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+char	*ft_strtrim(char const *s1, char const *set)
+{	
+	char	*trimmmmed;
+	int		len;
+	int		i;
+	int		j;
+
+	len = ft_strlen((char *)s1);
+	trimmmmed = malloc(sizeof(char) * len);
+	if (!trimmmmed)
+		retun (NULL);
+	while(s1[i] != '\0')
+	{
+		if (s1[i] == set[j])
+		{
+			i++;			
+		}			
+	}
+}
