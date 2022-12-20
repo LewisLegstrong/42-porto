@@ -14,18 +14,32 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*tmp;
 
+	tmp = (char *)s;
 	i = 0;
-	while (s[i] != '\0')
+	while (tmp[i])
 	{
-		if (s[i] == (char)c)
-		{
-			return ((char *)s + i);
-		}
+		if (tmp[i] == c)
+			return (tmp + i);
 		i++;
 	}
-	if (c == '\0' && s[i] == '\0')
-		return ((char *)s + i);
+	if (c == '\0' && tmp[i] == '\0')
+		return (tmp + i);
 	return (NULL);
 }
+
+/*int main()
+{
+	
+	char *str = "teste";
+	char *st2 = "teste";
+	printf("%p - %s\n", str, str);
+	printf("%p - %s\n", st2, st2);
+	str = ft_strchr(str, 'e');
+	st2 = strchr(st2, 'e');
+	printf("%p - %s\n", str, str);
+	printf("%p - %s\n", st2, st2);
+	return 0;
+}*/

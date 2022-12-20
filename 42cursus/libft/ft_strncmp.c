@@ -30,7 +30,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 			aux2++;
 		}
 		else
-			break;
+			break ;
 	}
 	return (*aux1 - *aux2);
 }

@@ -19,8 +19,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	aux1 = (unsigned char *)s1;
 	aux2 = (unsigned char *)s2;
-	n = n - 1;
-	while (n-- != 0)
+	if (n == 0)
+		return (0);
+	while (--n != 0)
 	{
 		if (*aux1 == *aux2)
 		{	
@@ -28,7 +29,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			aux2++;
 		}
 		else
-			break;
+			break ;
 	}
 	return (*aux1 - *aux2);
 }

@@ -11,17 +11,23 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*joined;
-	int		len;
+	char	*aux;
+	size_t	len1;
+	size_t	len2;
 
-	len = (ft_strlen((char *)s1) + ft_strlen((char *)s2));
-	joined = malloc(sizeof(char) * len - 1);
+	len1 = ft_strlen((char *)s1);
+	len2 = ft_strlen((char *)s2);
+	joined = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!joined)
 		return (NULL);
-	ft_strlcat(joined, (char *)s1, len);
-	ft_strlcat(joined, (char *)s2, len);
-	
+	aux = joined;
+	ft_memcpy(aux, s1, len1);
+	aux = aux + len1;
+	ft_memcpy(aux, s2, len2);
+	aux = aux + len2;
+	*aux = 0;
 	return (joined);
 }

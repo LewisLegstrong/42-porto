@@ -20,7 +20,7 @@ static int	find_stuart_little(char *big, char *little, size_t len)
 			return (0);
 		little++;
 		big++;
-		len--;	
+		len--;
 	}
 	if (*little == '\0')
 		return (1);
@@ -43,7 +43,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			if (find_stuart_little(auxbig, (char *)little, (len - i)))
 				return (auxbig);
 		}
-		//i++;
 		auxbig++;
 	}
 	return (NULL);

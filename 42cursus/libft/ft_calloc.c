@@ -15,9 +15,9 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*coiso;
-	size_t	i;
+	size_t			i;
 
-	i = nmemb*size;
+	i = nmemb * size;
 	coiso = malloc(i);
 	if (!coiso)
 		return (NULL);
