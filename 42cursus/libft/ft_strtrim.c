@@ -17,7 +17,7 @@ static int	is_set(char c, const char *set_str)
 	char *aux;
 
 	aux = (char *)set_str;
-	while (aux != '\0')
+	while (*aux != '\0')
 	{	
 		if (c == *aux)
 			return (1);
@@ -26,7 +26,7 @@ static int	is_set(char c, const char *set_str)
 	return (0);
 }
 
-static void 	str_cpy(const char *s1, const char *trim, int start, int stop)
+static void 	str_cpy(const char *s1, char *trim, int start, int stop)
 {
 	int z;
 
@@ -49,7 +49,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	len = ft_strlen((char *)s1);
 	j = len;
-	while(s1 != '\0')
+	while(*s1 != '\0')
 	{
 		if (is_set(s1[i], set))
 			i++;
