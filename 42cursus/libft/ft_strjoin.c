@@ -19,7 +19,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	len = (ft_strlen((char *)s1) + ft_strlen((char *)s2));
 	joined = malloc(sizeof(char) * len - 1);
 	if (!joined)
-		retun (NULL);
+		return (NULL);
 	ft_strlcat(joined, (char *)s1, len);
 	ft_strlcat(joined, (char *)s2, len);
 	
