@@ -36,7 +36,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	auxbig = (char *)big;
 	if (*little == '\0')
 		return ((char *)big);
-	while (++i < len)
+	while (++i < len && *auxbig)
 	{
 		if (*little == *auxbig)
 		{	
