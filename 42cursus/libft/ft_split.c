@@ -47,18 +47,20 @@ static size_t	slen(char *s, char c)
 static char	*split_word(char *s, size_t stlen)
 {
 	char	*newword;
+	char	*aux;
 	size_t	j;
 
 	j = 0;
-	newword = malloc(sizeof(char) * stlen + 1);
+	newword = malloc(sizeof(char) * (stlen + 1));
 	if (!newword)
 		return (NULL);
+	aux = newword;
 	while (j < stlen)
 	{
-		*newword++ = *s++;
+		*aux++ = *s++;
 		j++;
 	}
-	*newword = '\0';
+	*aux = '\0';
 	return (newword);
 }
 
@@ -70,7 +72,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	nwd = cnt_wd((char *)s, c);
-	map = malloc(sizeof(char *) * nwd + 1);
+	map = malloc(sizeof(char *) * (nwd + 1));
 	if (!map)
 		return (NULL);
 	while (i < nwd)
@@ -88,18 +90,4 @@ char	**ft_split(char const *s, char c)
 	}
 	map[i] = NULL;
 	return (map);
-}
-
-int main()
-{
-	char *s = ":miguel:more:silva:";
-	char **map;
-	int i = 0;
-	map = ft_split(s, ':');
-	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
-	return (0);
 }
