@@ -8,11 +8,11 @@ SOURCES = \
 	ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c ft_strrchr.c\
 
-#BSOURCES = \
+BSOURCES = \
 		ft_lst*.c
 
 OBJECTS = $(SOURCES:.c=.o)
-#BOBJECTS = $(BSOURCES:.c=.o)
+BOBJECTS = $(BSOURCES:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -22,14 +22,14 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(AR) -r $@ $?
 
-#bonus: $(BOBJECTS)
-#	$(AR) -r $(NAME) $?
+bonus: $(BOBJECTS)
+	$(AR) -r $(NAME) $?
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?
 
 clean:
-	rm -f $(OBJECTS) #$(BOBJECTS)
+	rm -f $(OBJECTS) $(BOBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -37,5 +37,5 @@ fclean: clean
 re: fclean all
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES) #$(BSOURCES)
-	$(CC) -nostartfiles -shared -o libft.so $(OBJECTS) #$(BOBJECTS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES) $(BSOURCES)
+	$(CC) -nostartfiles -shared -o libft.so $(OBJECTS) $(BOBJECTS)
