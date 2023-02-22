@@ -52,15 +52,16 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-void	*ft_memset(void *s, int c, size_t n)
+int	find_chr(const char *s)
 {
-	unsigned char	*aux;
+	char	*tmp;
 
-	aux = s;
-	while (aux < (unsigned char *)s + n)
+	tmp = (char *)s;
+	while (*tmp)
 	{
-		*aux = c;
-		aux++;
+		if (*tmp == '\n')
+			return (1);
+		tmp++;
 	}
-	return (s);
+	return (0);
 }
