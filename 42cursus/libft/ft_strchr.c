@@ -30,7 +30,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-/*int main()
+int main()
 {
 	
 	char *str = "teste";
@@ -42,4 +42,4 @@ char	*ft_strchr(const char *s, int c)
 	printf("%p - %s\n", str, str);
 	printf("%p - %s\n", st2, st2);
 	return 0;
-}*/
+}
