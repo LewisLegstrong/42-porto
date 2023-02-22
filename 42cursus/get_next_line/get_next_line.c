@@ -18,20 +18,34 @@ char *get_next_line(int fd)
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
-	while (!(findstr(strpool)) || !totalstr)
-		strpool = get_buffer(fd, strpool);	
-
-
+	while (!(find_chr(strpool)) || !strpool)
+		strpool = get_buffer(fd, strpool);
+	
+	/*
+	Agora que tem \n, colocar numa variavel que va ser devolvida 
+	remover o conteudo ate ao \n da pool de buffers
 	
 	
-
-
-	
-	while(totalstr != '\n')
-	
-
+	*/	
 	return (linetoget);
 }
+
+char	*poolcut(char *strpool, char *linetoget)
+{
+	
+
+	ft_strlen(strpool);
+	ft_strlen(linetoget);
+
+	//
+} 
+
+char	*linetoget()
+{
+
+}
+
+//
 
 // int main()
 // {
