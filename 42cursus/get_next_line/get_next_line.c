@@ -32,17 +32,36 @@ char *get_next_line(int fd)
 
 char	*poolcut(char *strpool, char *linetoget)
 {
-	
+	char *newpool;
 
-	ft_strlen(strpool);
-	ft_strlen(linetoget);
-
+	newpool = malloc(sizeof(char *) * (ft_strlen(strpool) - ft_strlen(linetoget)));
+	while (*strpool != '\n')
+		strpool++;
+	strpool++;
+	while (*strpool)
+		*newpool = *strpool;
+	*newpool = '\0';
+	return (newpool);
 	//
 } 
 
-char	*linetoget()
+char	*return_line(char *strpool)
 {
+	int		size;
+	char	*aux;	
+	char	*ret_str;
 
+	size = 0;
+	aux = strpool;
+	while (*aux++ != '\n')
+		size++;
+	ret_str = malloc(sizeof(char *) * size + 2);
+	aux = strpool;
+	while (*aux != '\n')
+		*ret_str++ = *aux++;
+	if (*ret_str == '\n')
+		*ret_str++ = *aux++;
+	*ret_str = '\0';
 }
 
 //
