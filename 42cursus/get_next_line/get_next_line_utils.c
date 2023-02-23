@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luiduart <luiduart@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/23 17:42:02 by luiduart          #+#    #+#             */
+/*   Updated: 2023/02/23 17:42:02 by luiduart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *str)
@@ -15,25 +27,29 @@ size_t	ft_strlen(const char *str)
 	return (cont);
 }
 
-char	*ft_strjoin(char *strpool, char *buffer)
+char	*ft_strjoin(char *pool, char *buff)
 {
 	char	*joined;
 	char	*aux;
 	size_t	len1;
 	size_t	len2;
-
-	len1 = ft_strlen((char *)strpool);
-	len2 = ft_strlen((char *)buffer);
+	
+	if (!pool)
+		return (NULL);
+	len1 = ft_strlen(pool);
+	len2 = ft_strlen(buff);
 	joined = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!joined)
 		return (NULL);
 	aux = joined;
-	ft_memcpy(aux, strpool, len1);
-	aux = aux + len1;
-	ft_memcpy(aux, buffer, len2);
+	if (len1 != 0)
+	{
+		ft_memcpy(aux, pool, len1);
+		aux = aux + len1;
+	}
+	ft_memcpy(aux, buff, len2);
 	aux = aux + len2;
 	*aux = 0;
-	free(strpool);
 	return (joined);
 }
 
@@ -55,6 +71,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
+
 int	find_chr(const char *s)
 {
 	char	*tmp;
@@ -69,4 +86,14 @@ int	find_chr(const char *s)
 		tmp++;
 	}
 	return (0);
+}
+
+char	*initpool(char *pool)
+{
+	if(!pool)
+	{
+		pool = malloc(sizeof(char) * 1);
+		*pool = '\0';
+	}
+	return (pool);
 }

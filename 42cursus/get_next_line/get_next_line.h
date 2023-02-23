@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luiduart <luiduart@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/23 17:42:19 by luiduart          #+#    #+#             */
+/*   Updated: 2023/02/23 17:42:19 by luiduart         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 2
 # endif
 
 #include <unistd.h>
@@ -20,7 +31,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 size_t	ft_strlen(const char *str);
 int	find_chr(const char *s);
-char	*poolcut(char *strpool, char *linetoget);
+char	*poolcut(char *strpool);
 char	*return_line(char *strpool);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*initpool(char *pool);
 
 #endif
