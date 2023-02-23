@@ -5,6 +5,8 @@ size_t	ft_strlen(const char *str)
 	int	cont;
 
 	cont = 0;
+	if (str == NULL)
+		return (0);
 	while (*str != '\0')
 	{
 		str++;
@@ -13,24 +15,25 @@ size_t	ft_strlen(const char *str)
 	return (cont);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *strpool, char *buffer)
 {
 	char	*joined;
 	char	*aux;
 	size_t	len1;
 	size_t	len2;
 
-	len1 = ft_strlen((char *)s1);
-	len2 = ft_strlen((char *)s2);
+	len1 = ft_strlen((char *)strpool);
+	len2 = ft_strlen((char *)buffer);
 	joined = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!joined)
 		return (NULL);
 	aux = joined;
-	ft_memcpy(aux, s1, len1);
+	ft_memcpy(aux, strpool, len1);
 	aux = aux + len1;
-	ft_memcpy(aux, s2, len2);
+	ft_memcpy(aux, buffer, len2);
 	aux = aux + len2;
 	*aux = 0;
+	free(strpool);
 	return (joined);
 }
 
@@ -57,6 +60,8 @@ int	find_chr(const char *s)
 	char	*tmp;
 
 	tmp = (char *)s;
+	if (s == NULL)
+		return (0);
 	while (*tmp)
 	{
 		if (*tmp == '\n')
