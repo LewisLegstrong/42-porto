@@ -75,30 +75,24 @@ int	size_newpool(char *strpool)
 char	*poolcut(char *strpool)
 {
 	char	*newpool;
-	char	*aux;
-	char	*aux2;
+	int		i;
+	int		size;
 
 	if (!*strpool)
 	{
 		free(strpool);
 		return (NULL);
 	}
-	aux = strpool;
+	size = ft_strlen(strpool) - size_newpool(strpool);
 	newpool = malloc(sizeof(char) * (size_newpool(strpool) + 1));
 	if (!newpool)
 		return (NULL);
-	aux2 = newpool;
-	while (*strpool != '\n' && *strpool)
-		strpool++;
-	if (*strpool == '\n')
-		strpool++;
-	while (*strpool)
-		*newpool++ = *strpool++;
-	*newpool = '\0';
-	strpool = aux;
+	i = 0;
+	while (strpool[size])
+		newpool[i++] = strpool[size++];
+	newpool[i] = '\0';
 	free(strpool);
-	newpool = aux2;
-	if (*newpool == '\0')
+	if (newpool[0] == '\0')
 	{
 		free(newpool);
 		return (NULL);
@@ -121,38 +115,37 @@ char	*return_line(char *strpool)
 		i += 1;
 	ret_str = malloc(sizeof(char) * (i + 1));
 	if (!ret_str)
-		return(NULL);
+		return (NULL);
 	it = ret_str;
 	while (*strpool && *strpool != '\n')
 		*it++ = *strpool++;
 	if (*strpool == '\n')
 		*it++ = *strpool;
 	*it = '\0';
-	return (ret_str);	
+	return (ret_str);
 }
 
+// int main()
+// {
+// 	int fd;
+// 	char *coiso; 
 
-/*int main()
-{
-	int fd;
-	char *coiso; 
-
-	fd = open("./teste", O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error");
-		return (1);
-	}		
-	while (1)
-	{	
-			coiso = get_next_line(fd);
-			printf("%s", coiso);
-			free (coiso);
-			coiso = get_next_line(fd);
-			printf("%s", coiso);
-			free (coiso);
-			break ;
-	}		
-	close(fd);
-	return 0;
-}*/
+// 	fd = open("./teste", O_RDONLY);
+// 	if (fd < 0)
+// 	{
+// 		printf("Error");
+// 		return (1);
+// 	}		
+// 	while (1)
+// 	{	
+// 			coiso = get_next_line(fd);
+// 			printf("%s", coiso);
+// 			free (coiso);
+// 			coiso = get_next_line(fd);
+// 			printf("%s", coiso);
+// 			free (coiso);
+// 			break ;
+// 	}		
+// 	close(fd);
+// 	return 0;
+// }

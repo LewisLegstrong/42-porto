@@ -33,7 +33,7 @@ char	*ft_strjoin(char *pool, char *buff)
 	char	*aux;
 	size_t	len1;
 	size_t	len2;
-	
+
 	if (!pool)
 		return (NULL);
 	len1 = ft_strlen(pool);
@@ -71,7 +71,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-
 int	find_chr(const char *s)
 {
 	char	*tmp;
@@ -90,7 +89,7 @@ int	find_chr(const char *s)
 
 char	*initpool(char *pool)
 {
-	if(!pool)
+	if (!pool)
 	{
 		pool = malloc(sizeof(char) * 1);
 		*pool = '\0';
