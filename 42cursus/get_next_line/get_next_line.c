@@ -128,16 +128,16 @@ char	*return_line(char *strpool)
 // int main()
 // {
 // 	int fd;
-// 	char *coiso; 
+// 	char *coiso;
 
 // 	fd = open("./teste", O_RDONLY);
 // 	if (fd < 0)
 // 	{
 // 		printf("Error");
 // 		return (1);
-// 	}		
+// 	}
 // 	while (1)
-// 	{	
+// 	{
 // 			coiso = get_next_line(fd);
 // 			printf("%s", coiso);
 // 			free (coiso);
@@ -145,7 +145,7 @@ char	*return_line(char *strpool)
 // 			printf("%s", coiso);
 // 			free (coiso);
 // 			break ;
-// 	}		
+// 	}
 // 	close(fd);
 // 	return 0;
 // }
